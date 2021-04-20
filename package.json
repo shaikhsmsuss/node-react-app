@@ -1,0 +1,20 @@
+{
+  "name": "shopbridge",
+  "version": "1.0.0",
+  "description": "Add Inventory details",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Shaikh Mohammad Shoeb",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "create-react-app": "^4.0.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.4",
+    "nodemon": "^2.0.7"
+  }
+}

@@ -1,0 +1,5 @@
+export const GET_PRODUCT_LIST = "GET_PRODUCT_LIST";
+export const ADD_PRODUCT = "ADD_PRODUCT";
+export const UPDATE_PRODUCT = "UPDATE_PRODUCT";
+export const SET_ERRORS = "SET_ERRORS";
+export const DELETE_PRODUCT = "DELETE_PRODUCT";
