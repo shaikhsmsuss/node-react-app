@@ -9,6 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles({
   table: {
     minWidth: 450,
@@ -30,7 +31,6 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 export default function BasicTable({ rows, deleteSingleProduct }) {
-  console.log("looo", rows);
   const classes = useStyles();
   const history = useHistory();
 
@@ -66,45 +66,20 @@ export default function BasicTable({ rows, deleteSingleProduct }) {
         <TableBody className={classes.body}>
           {rows.map((row) => (
             <TableRow key={row.name}>
-              <TableCell
-                component="th"
-                scope="row"
-                className={classes.head}
-                // onClick={() => onClick(row)}
-              >
+              <TableCell component="th" scope="row" className={classes.head}>
                 {row.name}
               </TableCell>
-              <TableCell
-                component="th"
-                scope="row"
-                className={classes.head}
-                // onClick={() => onClick(row)}
-              >
+              <TableCell component="th" scope="row" className={classes.head}>
                 {row.companyName}
               </TableCell>
 
-              <TableCell
-                component="th"
-                scope="row"
-                className={classes.head}
-                // onClick={() => onClick(row)}
-              >
+              <TableCell component="th" scope="row" className={classes.head}>
                 {row.description}
               </TableCell>
-              <TableCell
-                component="th"
-                scope="row"
-                className={classes.head}
-                // onClick={() => onClick(row)}
-              >
+              <TableCell component="th" scope="row" className={classes.head}>
                 {row.price}
               </TableCell>
-              <TableCell
-                component="th"
-                scope="row"
-                className={classes.head}
-                // onClick={() => onClick(row)}
-              >
+              <TableCell component="th" scope="row" className={classes.head}>
                 {row.quantity}
               </TableCell>
               <TableCell

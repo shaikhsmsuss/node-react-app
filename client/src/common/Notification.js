@@ -19,20 +19,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Notification({ notify, setNotify, closeNotification }) {
   const classes = useStyles();
-  console.log("notify", notify);
+
   const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
-    console.log("clickckkk");
     closeNotification();
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
   };
 
   return (

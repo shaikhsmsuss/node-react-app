@@ -47,7 +47,6 @@ class Dashboard extends Component {
   }
 
   deleteSingleProduct = (id) => {
-    console.log("id", id);
     this.props.deleteProduct(id);
     this.setState({
       notify: {
@@ -60,7 +59,6 @@ class Dashboard extends Component {
   };
 
   closeNotification = () => {
-    console.log("i am awkakkkk");
     this.setState({
       notify: {
         isOpen: false,

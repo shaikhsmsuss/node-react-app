@@ -68,7 +68,7 @@ class AddProduct extends Component {
     if (this.validateForm({ submitted: true })) {
       if (this.state._id) {
         data.id = this.state._id;
-        let result = await this.props.updateProduct(data, this.props.history);
+        await this.props.updateProduct(data, this.props.history);
         if (this.props.errors && this.props.errors.message) {
           this.setState({
             notify: {
@@ -89,7 +89,7 @@ class AddProduct extends Component {
           });
         }
       } else {
-        let result = await this.props.addProducts(data, this.props.history);
+        await this.props.addProducts(data, this.props.history);
         if (this.props.errors && this.props.errors.message) {
           this.setState({
             notify: {
