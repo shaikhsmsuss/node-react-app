@@ -24,7 +24,7 @@ export default function DenseAppBar() {
     <div>
       <AppBar position="static" className={classes.root}>
         <Toolbar variant="dense">
-          <Typography variant="h6">ShopBridge</Typography>
+          <Typography variant="h6">Shop Bridge</Typography>
         </Toolbar>
       </AppBar>
     </div>
