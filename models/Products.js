@@ -7,6 +7,10 @@ const ProductSchema = new Schema({
     type: String,
     required: true,
   },
+  companyName: {
+    type: String,
+    required: true,
+  },
   description: {
     type: String,
     required: true,
@@ -15,7 +19,10 @@ const ProductSchema = new Schema({
     type: String,
     required: true,
   },
-
+  quantity: {
+    type: Number,
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now,

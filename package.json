@@ -4,12 +4,16 @@
   "description": "Add Inventory details",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Shaikh Mohammad Shoeb",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^6.0.2",
     "cors": "^2.8.5",
     "create-react-app": "^4.0.3",
     "dotenv": "^8.2.0",

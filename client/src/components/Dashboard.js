@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
-import { getAllProducts } from "../actions/productAction";
+import { getAllProducts, deleteProduct } from "../actions/productAction";
 import Table from "./Table";
-import { Button, Box, Grid, Paper } from "@material-ui/core";
+import { Button, Box, Grid, Paper, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import AddIcon from "@material-ui/icons/Add";
+import Notification from "../common/Notification";
 
 const useStyles = (theme) => ({
   allignBox: {
@@ -14,51 +15,116 @@ const useStyles = (theme) => ({
 });
 
 class Dashboard extends Component {
-  componentDidMount() {
-    this.props.getAllProducts();
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      notify: {
+        isOpen: false,
+        message: "",
+        type: "",
+        timing: "",
+      },
+    };
   }
 
-  onClick = () => {};
+  componentDidMount() {
+    this.props.getAllProducts();
+    console.log("error", this.props.errors);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({
+        notify: {
+          isOpen: true,
+          message: "Network Error",
+          type: "error",
+          timing: 2000,
+        },
+      });
+    }
+  }
+
+  deleteSingleProduct = (id) => {
+    console.log("id", id);
+    this.props.deleteProduct(id);
+    this.setState({
+      notify: {
+        isOpen: true,
+        message: "Product Deleted Successfully",
+        type: "success",
+        timing: 2000,
+      },
+    });
+  };
+
+  closeNotification = () => {
+    console.log("i am awkakkkk");
+    this.setState({
+      notify: {
+        isOpen: false,
+        message: "",
+        type: "",
+        timing: "",
+      },
+    });
+  };
 
   render() {
     const { products } = this.props.products;
-    console.log("products", products);
+    console.log("products", this.state);
     return (
       <Box p={4}>
         <Grid spacing={2}>
           <Grid container justify="flex-end">
-            <Link to="addproduct">
+            <Link to="/addproduct">
               <Button
                 variant="contained"
                 color="primary"
                 onClick={this.onClick}
               >
-                <AddIcon /> Add Product
+                <AddIcon />
+                Add Product
               </Button>
             </Link>
           </Grid>
           <Box m={1}>
             {products && products.length > 0 ? (
               <>
-                <Table rows={products} />
+                <h1 style={{ color: "#3f51b5" }}>Inventory</h1>
+                <Table
+                  rows={products}
+                  deleteSingleProduct={this.deleteSingleProduct}
+                />
               </>
             ) : (
-              <>
+              <Box m={5}>
                 <Paper elevation={0}>
-                  <h1>You don't have any Inventory? Please create one!!!</h1>
+                  <Typography variant="h3" component="h2">
+                    You don't have any Inventory? Please click on Add Product to
+                    create one!!!
+                  </Typography>
                 </Paper>
-              </>
+              </Box>
             )}
           </Box>
         </Grid>
+        <Notification
+          notify={this.state.notify}
+          closeNotification={this.closeNotification}
+        />
       </Box>
     );
   }
 }
 const mapStateToProps = (state) => ({
   products: state.products,
+  errors: state.errors,
 });
 
 export default withStyles(useStyles)(
-  connect(mapStateToProps, { getAllProducts })(withRouter(Dashboard))
+  connect(mapStateToProps, { getAllProducts, deleteProduct })(
+    withRouter(Dashboard)
+  )
 );
