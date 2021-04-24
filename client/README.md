@@ -87,16 +87,18 @@ and edit and delete as well
 when you click on edit button it will move to the same route as `/addproduct` where you will see a form with 
 the data autopopulated using the product id. after submit you will redirect to home and you can see the updated data.
 
-## server.js file in the root directory which is the main file which is running the server.
+## Folders Details
 
-## In the root directory Model folder contains the Mongoose shema 
+# server.js file in the root directory which is the main file which is running the server.
 
-## In the root directory routes folder contains the all the routes for the application.
+# In the root directory Model folder contains the Mongoose shema 
 
-## In the client folder `actions` folder is for redux actions for calling APIS
+# In the root directory routes folder contains the all the routes for the application.
 
-## `reducer` folder is for the reducers 
+# In the client folder `actions` folder is for redux actions for calling APIS
 
-## `store.js` file is for creating the redux store.
+# `reducer` folder is for the reducers 
 
-## `components` folder contains all the components.
+# `store.js` file is for creating the redux store.
+
+# `components` folder contains all the components.
