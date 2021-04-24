@@ -87,7 +87,10 @@ and edit and delete as well
 when you click on edit button it will move to the same route as `/addproduct` where you will see a form with 
 the data autopopulated using the product id. after submit you will redirect to home and you can see the updated data.
 
- server.js file in the root directory which is the main file which is running the server.
+
+## Folder Details
+
+server.js file in the root directory which is the main file which is running the server.
 
 In the root directory Model folder contains the Mongoose shema 
 
